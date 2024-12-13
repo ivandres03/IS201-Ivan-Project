@@ -1,0 +1,65 @@
+  <style>
+    body {
+    text-align: center;
+    }
+
+    .titulo-con-fondo {
+      position: relative;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      font-family: 'Franklin Gothic Heavy', sans-serif;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    p{
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px 0;
+      max-width: 60%;
+      text-align: center;
+    }
+    .back-color{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-family: 'Franklin Gothic Heavy', sans-serif;
+    }
+    ol{
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    }
+    .top-right{
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px
+    }
+    a:visited {
+  color: white;
+    }
+    a:hover {
+    font-weight: bold;
+    }
+    a:visited {
+    color: white;
+    }
+    a{
+    color: white;}
+    .video-container {
+    display: flex;
+    gap: 20px;
+    }
+    .text-right {
+    flex: 1;
+    text-align: left;
+    word-wrap: break-word;
+    line-height: 1.5;
+    font-size: 1rem;
+    max-width: 50%;
+    }
+  </style>

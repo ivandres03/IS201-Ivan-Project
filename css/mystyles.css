@@ -1,0 +1,19 @@
+<styles>
+    .left-bar{
+    color: blue;
+    }
+    p {
+    font-family: Arial, sans-serif;
+    color: brown;
+    /*text-decoration: underline*/;
+    }
+    .top-right{
+    color: brown;
+    position: absolute;
+    top: 10px;
+    right: 10px
+    }
+    li{
+    color:brown;
+    }
+</style>

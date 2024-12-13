@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .game-container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .choice:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        h2, h3 {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .result-image {
+            width: 150px;
+            height: 150px;
+            margin-top: 20px;
+        }
+        .top-right{
+        color: gray;
+        position: absolute;
+        top: 10px;
+        right: 10px
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right"><a href="scratch.html">Learn about a harder battle</a></div>
+    <div class="game-container">
+        <h1>Rock, Paper, Scissors</h1>
+        <div class="choices">
+            <img src="assets/img/rock.png" alt="Rock" class="choice" id="rock">
+            <img src="assets/img/paper.png" alt="Paper" class="choice" id="paper">
+            <img src="assets/img/scissor.png" alt="Scissors" class="choice" id="scissors">
+        </div>
+        <h2>Result: <span id="result">Make your choice</span></h2>
+        <h3>Your choice: <span id="yourChoice">-</span></h3>
+        <h3>Computer's choice: <span id="computerChoice">-</span></h3>
+        <img id="resultImage" class="result-image" src="assets/img/image5.png" alt="Initial Image" />
+    </div>
+
+    <script>
+        // Function to generate the computer's choice
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        // Function to determine the winner
+        function determineWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                return "It's a tie!";
+            } else if (
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                return "You win!";
+            } else {
+                return "You lose!";
+            }
+        }
+
+        // Function to update the interface with the result
+        function playGame(userChoice) {
+            const computerChoice = getComputerChoice();
+            const result = determineWinner(userChoice, computerChoice);
+
+            document.getElementById('yourChoice').textContent = userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
+            document.getElementById('computerChoice').textContent = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+            document.getElementById('result').textContent = result;
+
+            // Show win or lose image based on result
+            if (result === "You win!") {
+                document.getElementById('resultImage').src = 'assets/img/win.png';
+            } else if (result === "You lose!") {
+                document.getElementById('resultImage').src = 'assets/img/lose.png';
+            } else {
+                document.getElementById('resultImage').src = 'assets/img/tie.png';
+            }
+        }
+
+        // Assign events to the images (buttons)
+        document.getElementById('rock').addEventListener('click', () => playGame('rock'));
+        document.getElementById('paper').addEventListener('click', () => playGame('paper'));
+        document.getElementById('scissors').addEventListener('click', () => playGame('scissors'));
+    </script>
+</body>
+</html>
